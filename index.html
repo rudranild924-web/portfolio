@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rudranil Deb | Websites for local shops</title>
+<meta name="description" content="Rudranil Deb builds fast mobile websites and Google Business Profiles for cafes, salons and other local shops.">
+<meta property="og:title" content="Rudranil Deb | Websites for local shops">
+<meta property="og:description" content="Fast mobile websites and Google Business Profiles for cafes, salons and local shops.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#101B3B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #101B3B;
+    --ink-2: #1B2A57;
+    --sun: #FFD23F;
+    --paper: #F4F7FB;
+    --white: #FFFFFF;
+    --teal: #12806F;
+    --line: #D5DCE8;
+    --text: #1A2340;
+    --muted: #4A5675;
+    --display: "Bricolage Grotesque", system-ui, sans-serif;
+    --body: "Instrument Sans", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+  .on-dark :focus-visible { outline-color: var(--sun); }
+
+  .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+
+  h1, h2, h3 { font-family: var(--display); line-height: 1.08; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.9rem, 4.2vw, 2.9rem); font-weight: 800; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.85rem 1.4rem; border-radius: 999px;
+    font-family: var(--display); font-weight: 700; font-size: 1.02rem;
+    text-decoration: none; border: 2px solid transparent;
+    transition: transform .15s ease, background-color .15s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-sun { background: var(--sun); color: var(--ink); }
+  .btn-sun:hover { background: #ffdc66; }
+  .btn-ghost { border-color: rgba(255,255,255,.5); color: var(--white); }
+  .btn-ghost:hover { border-color: var(--white); }
+  .btn-ink { background: var(--ink); color: var(--white); }
+  .btn-ink:hover { background: var(--ink-2); }
+
+  /* Header + hero */
+  .hero { background: var(--ink); color: var(--white); overflow: hidden; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .brand { font-family: var(--display); font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.01em; }
+  .nav ul { display: flex; gap: 28px; list-style: none; align-items: center; }
+  .nav a { text-decoration: none; font-weight: 500; }
+  .nav ul a:hover { text-decoration: underline; text-underline-offset: 5px; }
+  .nav .btn { padding: .55rem 1.1rem; font-size: .95rem; }
+
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center;
+    padding: 36px 0 88px;
+  }
+  .hero h1 { font-size: clamp(2.5rem, 6.2vw, 4.7rem); font-weight: 800; }
+  .hero h1 span { display: block; }
+  .hero p.lead { margin-top: 22px; max-width: 34em; font-size: 1.15rem; color: #D6DDF0; }
+  .hero-cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+  /* Phone mock */
+  .phone-wrap { justify-self: center; }
+  .phone {
+    width: 280px; height: 560px; background: var(--white); color: #2B1B0E;
+    border: 9px solid #0A1230; border-radius: 40px; overflow: hidden;
+    box-shadow: 14px 14px 0 var(--sun);
+    transform: rotate(-3deg);
+    display: flex; flex-direction: column; position: relative;
+  }
+  .phone::before {
+    content: ""; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+    width: 72px; height: 18px; background: #0A1230; border-radius: 99px; z-index: 2;
+  }
+  .site-top { padding: 34px 16px 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-family: var(--display); }
+  .site-top b { font-size: 1.05rem; }
+  .site-top i { font-style: normal; font-size: .72rem; font-weight: 600; background: #E7F4EF; color: var(--teal); padding: 3px 9px; border-radius: 99px; }
+  .site-hero {
+    margin: 4px 12px 0; border-radius: 18px; padding: 22px 16px; color: #fff; min-height: 170px;
+    background:
+      linear-gradient(to top, rgba(10,18,48,.82) 10%, rgba(10,18,48,0) 75%),
+      url("coffee.jpg") center top / cover no-repeat,
+      #7A4A1E;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .site-hero strong { font-family: var(--display); font-size: 1.45rem; line-height: 1.1; }
+  .site-hero small { margin-top: 6px; font-size: .78rem; opacity: .92; }
+  .site-menu { padding: 14px 18px 0; font-size: .86rem; }
+  .site-menu h4 { font-family: var(--display); font-size: .95rem; margin-bottom: 6px; }
+  .site-menu div { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed #E6D8C6; }
+  .site-actions { margin-top: auto; padding: 12px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .site-actions span { text-align: center; font-size: .74rem; font-weight: 700; padding: 10px 4px; border-radius: 12px; background: #F5EBDD; }
+  .site-actions span.wa { background: #1FA855; color: #fff; }
+  .phone-cap { margin-top: 30px; max-width: 280px; font-size: .88rem; color: #AEB9D9; }
+
+  /* Sections */
+  section { padding: 92px 0; }
+  .intro { max-width: 36em; margin-top: 14px; color: var(--muted); }
+
+  /* Services as rows */
+  .rows { margin-top: 44px; border-top: 2px solid var(--ink); }
+  .row { display: grid; grid-template-columns: 1fr 1.3fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+  .row h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 700; }
+  .row p { color: var(--muted); max-width: 38em; }
+
+  /* Work */
+  .work { background: var(--white); }
+  .tiles { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .tile {
+    display: flex; flex-direction: column;
+    background: var(--ink); color: #fff; border-radius: 22px; overflow: hidden;
+    text-decoration: none; transition: transform .2s ease;
+  }
+  .tile:hover { transform: translateY(-4px); }
+  .tile img { width: 100%; aspect-ratio: 3 / 5; object-fit: cover; object-position: top; display: block; background: var(--ink-2); }
+  .tile-body { padding: 20px 22px 26px; display: flex; flex-direction: column; flex: 1; }
+  .tile .tag { align-self: flex-start; font-size: .8rem; font-weight: 600; background: rgba(255,255,255,.14); padding: 4px 12px; border-radius: 99px; margin-bottom: 12px; }
+  .tile h3 { font-size: 1.45rem; font-weight: 800; }
+  .tile p { margin-top: 8px; font-size: .98rem; color: #D6DDF0; }
+  .tile .go { margin-top: auto; padding-top: 16px; font-weight: 700; font-family: var(--display); text-decoration: underline; text-underline-offset: 4px; color: var(--sun); }
+
+  /* Process: a real sequence */
+  .steps { margin-top: 44px; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: s; }
+  .steps li { counter-increment: s; padding-top: 18px; border-top: 4px solid var(--sun); background: none; }
+  .steps li::before { content: counter(s); font-family: var(--display); font-weight: 800; font-size: 2.6rem; line-height: 1; display: block; margin-bottom: 10px; }
+  .steps h3 { font-size: 1.2rem; margin-bottom: 6px; }
+  .steps p { color: var(--muted); font-size: .98rem; }
+
+  /* About */
+  .about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+  .about p { color: var(--muted); max-width: 36em; }
+  .about p + p { margin-top: 16px; }
+  .toolbox { margin-top: 6px; list-style: none; border-top: 2px solid var(--ink); }
+  .toolbox li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .toolbox li span:first-child { font-weight: 600; }
+  .toolbox li span:last-child { color: var(--muted); text-align: right; }
+
+  /* Contact */
+  .contact { background: var(--ink); color: var(--white); text-align: left; }
+  .contact h2 { max-width: 14em; }
+  .contact p { margin-top: 16px; color: #D6DDF0; max-width: 34em; }
+  .contact-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+  footer { background: var(--ink); color: #AEB9D9; padding: 0 0 40px; font-size: .92rem; }
+  footer .wrap { border-top: 1px solid rgba(255,255,255,.18); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  .float-wa {
+    display: none; position: fixed; right: 16px; bottom: 16px; z-index: 20;
+    background: var(--sun); color: var(--ink); font-family: var(--display); font-weight: 800;
+    padding: .8rem 1.2rem; border-radius: 999px; text-decoration: none;
+    box-shadow: 0 6px 0 rgba(16,27,59,.9);
+  }
+
+  /* One orchestrated load moment */
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  @keyframes tilt { from { opacity: 0; transform: translateY(40px) rotate(4deg); } to { opacity: 1; transform: rotate(-3deg); } }
+  .hero h1 span { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1 span:nth-child(2) { animation-delay: .12s; }
+  .hero h1 span:nth-child(3) { animation-delay: .24s; }
+  .hero p.lead, .hero-cta { animation: rise .7s .4s cubic-bezier(.2,.7,.2,1) both; }
+  .phone { animation: tilt .9s .3s cubic-bezier(.2,.7,.2,1) both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  /* Tablet and phone */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; padding-bottom: 64px; }
+    .phone-wrap { justify-self: start; padding-left: 8px; }
+    .row, .about-grid { grid-template-columns: 1fr; gap: 12px; }
+    .about-grid { gap: 36px; }
+    .tiles { grid-template-columns: 1fr; max-width: 460px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    section { padding: 68px 0; }
+  }
+  @media (max-width: 560px) {
+    .nav ul li:not(:last-child) { display: none; }
+    .steps { grid-template-columns: 1fr; }
+    .float-wa { display: inline-block; }
+    body { padding-bottom: 70px; }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="hero on-dark">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="#top">Rudranil Deb</a>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="btn btn-sun js-wa" href="#contact">Message me</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-grid" id="top">
+      <div>
+        <h1>
+          <span>Websites that fill</span>
+          <span>your café or salon.</span>
+        </h1>
+        <p class="lead">I'm Rudranil, a 15-year-old developer. I build fast mobile websites and Google Business Profiles for local shops. You see a demo of your own shop before you pay anything.</p>
+        <div class="hero-cta">
+          <a class="btn btn-sun js-wa" href="#contact">Message me on WhatsApp</a>
+          <a class="btn btn-ghost" href="#work">See my work</a>
+        </div>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone" role="img" aria-label="A demo café website shown on a phone, with a menu and call, WhatsApp and directions buttons">
+          <div class="site-top"><b>Demo Café</b><i>Open now</i></div>
+          <div class="site-hero">
+            <strong>Fresh coffee.<br>Warm seats.</strong>
+            <small>Today 8 am to 10 pm</small>
+          </div>
+          <div class="site-menu">
+            <h4>Popular today</h4>
+            <div><span>Cold coffee</span><span>₹120</span></div>
+            <div><span>Paneer sandwich</span><span>₹140</span></div>
+            <div><span>Brownie</span><span>₹90</span></div>
+          </div>
+          <div class="site-actions"><span>Call</span><span class="wa">WhatsApp</span><span>Directions</span></div>
+        </div>
+        <p class="phone-cap">A demo site, built to work with one thumb on a phone.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What I make for your shop</h2>
+      <p class="intro">Most of your customers find you on their phone. Everything I build starts there.</p>
+
+      <div class="rows">
+        <div class="row">
+          <h3>A website for your shop</h3>
+          <p>A fast page with your menu or price list, photos, opening hours, map, and one-tap buttons to call or message you on WhatsApp.</p>
+        </div>
+        <div class="row">
+          <h3>Google Business Profile</h3>
+          <p>I set up and tidy your Google listing, so people searching "salon near me" see the right hours, photos and phone number.</p>
+        </div>
+        <div class="row">
+          <h3>Monthly updates</h3>
+          <p>New prices, a changed menu, festival timings or fresh photos: send me a message and I'll update your site, so it never looks out of date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="wrap">
+      <h2>Recent demos</h2>
+      <p class="intro">Each one is a full working site. Open it on your phone to see how it feels.</p>
+      <div class="tiles" id="tiles"></div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="intro">You see the result before you commit to anything.</p>
+      <ol class="steps">
+        <li>
+          <h3>Send me your shop's name</h3>
+          <p>A WhatsApp message is enough. Add a few photos if you have them.</p>
+        </li>
+        <li>
+          <h3>Get a demo on your phone</h3>
+          <p>I build a first version with your name and details, and send you the link.</p>
+        </li>
+        <li>
+          <h3>Tell me what to change</h3>
+          <p>Prices, photos, colours, words. We adjust it until it feels right.</p>
+        </li>
+        <li>
+          <h3>Go live</h3>
+          <p>Your site goes online at its own web address, and I can keep it updated each month.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>Hi, I'm Rudranil.</h2>
+        <p style="margin-top:18px">I'm 15 and I love building things with AI: websites and small tools. I started making sites for cafés and salons because they're the shops I see every day, and many of them don't have a good website yet.</p>
+        <p>I'm a student, so I'll always tell you upfront how long something takes. I check every page by hand on a real phone before I send it to you.</p>
+      </div>
+      <ul class="toolbox" aria-label="What I use">
+        <li><span>Websites</span><span>HTML, CSS, JavaScript, GitHub</span></li>
+        <li><span>Design and build</span><span>AI tools, checked by hand</span></li>
+        <li><span>Local search</span><span>Google Business Profile</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact on-dark">
+    <div class="wrap">
+      <h2>Tell me about your shop.</h2>
+      <p>Send me your shop's name and what you'd like to improve. I'll reply with ideas and a demo.</p>
+      <div class="contact-actions">
+        <a class="btn btn-sun js-wa" href="#contact">WhatsApp me</a>
+        <a class="btn btn-ghost js-mail" href="#contact">Email</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="on-dark">
+  <div class="wrap">
+    <span>&copy; <span id="year">2026</span> Rudranil Deb</span>
+    <span>Websites for local shops</span>
+  </div>
+</footer>
+
+<a class="float-wa js-wa" href="#contact" aria-label="Message Rudranil on WhatsApp">WhatsApp</a>
+
+<script>
+  /* ============================================================
+     EDIT THIS PART ONLY.
+     Change the values between the quotes, then save and upload.
+     ============================================================ */
+  const CONFIG = {
+    whatsapp:  "918420599952",          // country code + number, no + or spaces
+    email:     "rudranild924@gmail.com",
+    message:   "Hi Rudranil, I saw your portfolio and I'd like a website for my shop.",
+
+    // Your demo projects. Add, remove or change items.
+    // url:   the link to the live site (for example your GitHub Pages link).
+    // image: the picture file, uploaded in the same place as index.html.
+    projects: [
+      {
+        title: "Front Yard Bliss Café",
+        label: "Demo project",
+        text:  "Menu, featured dishes, a map link and a table reservation form.",
+        url:   "https://susmitadev71-ux.github.io/cafe-website-demo/",
+        image: "cafe.jpg"
+      },
+      {
+        title: "Devine Salon Lounge",
+        label: "Demo project",
+        text:  "Services, three branches and a booking form that opens WhatsApp.",
+        url:   "https://rudranild924-web.github.io/Devine-demo-web/",
+        image: "salon.jpg"
+      },
+      {
+        title: "Aviruchi Caterers",
+        label: "Live website",
+        text:  "A menu builder for events and a quote request that opens WhatsApp.",
+        url:   "https://susmitadev71-ux.github.io/Aviruchi-/",
+        image: "caterer.jpg"
+      }
+    ]
+  };
+  /* ============================================================ */
+
+  (function () {
+    var wa = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.message);
+    document.querySelectorAll(".js-wa").forEach(function (a) {
+      a.href = wa; a.target = "_blank"; a.rel = "noopener";
+    });
+    document.querySelectorAll(".js-mail").forEach(function (a) {
+      a.href = "mailto:" + CONFIG.email;
+    });
+
+    var tiles = document.getElementById("tiles");
+    CONFIG.projects.forEach(function (p) {
+      var a = document.createElement("a");
+      a.className = "tile";
+      a.href = p.url;
+      if (p.url && p.url !== "#") { a.target = "_blank"; a.rel = "noopener"; }
+
+      var img = document.createElement("img");
+      img.src = p.image;
+      img.alt = "Preview of the " + p.title + " website";
+      img.loading = "lazy";
+
+      var body = document.createElement("div");
+      body.className = "tile-body";
+      var tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = p.label;
+      var h = document.createElement("h3");
+      h.textContent = p.title;
+      var t = document.createElement("p");
+      t.textContent = p.text;
+      var g = document.createElement("span");
+      g.className = "go";
+      g.textContent = "Open the website";
+      body.appendChild(tag); body.appendChild(h); body.appendChild(t); body.appendChild(g);
+
+      a.appendChild(img); a.appendChild(body);
+      tiles.appendChild(a);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
